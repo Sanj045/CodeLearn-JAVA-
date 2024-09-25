@@ -15,13 +15,17 @@ public class romanToInt {
         int ans = 0;
 
         for(int i = 0; i < s.length(); i++) {
-            if(i < s.length()-1 && s.charAt(i) == s.charAt(i+1)) {
-                ans += m.get(s.charAt(i)) * 2;
+            if(i < s.length()-1 && m.get(s.charAt(i)) < m.get(s.charAt(i+1))) {
+                ans -= m.get(s.charAt(i));
             }
             else {
                 ans += m.get(s.charAt(i));
             }
         }
         return ans;
+    }
+    public static void main(String[] args) {
+        romanToInt romanToInt = new romanToInt();
+        System.out.println(romanToInt.romanToInt("III"));
     }
 }
